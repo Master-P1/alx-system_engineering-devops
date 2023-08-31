@@ -1,2 +1,2 @@
 #!/bin/bash
-printf './, ../, '; ls -1a | grep -vE "^(\.{1,2})$" | sort -df --ignore='.[^[:alnum:]]' | awk '{if($0 ~ /\/$/) {print $0} else {print $0","}}' | tr '\n' ' '; printf "\n"
+ls -ap1 --group-directories-first | tr '\n' ', ' | sed 's/\(.*\), /\1\n/'
