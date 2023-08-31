@@ -1,2 +1,2 @@
 #!/bin/bash
-(echo -n . && ls -A | sed '/^\.$/d' | sed '/^\.\.$/d' | sed 's/^/, /') || echo -n .
+(echo -n . ; ls -A | sed '/^\.$/d' | sed '/^\.\.$/d' | sed 's/^/, /') | tr -d '\n' || echo -n .
