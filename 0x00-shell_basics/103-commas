@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -a1 | grep -vE "^\.+$" | sed -e 's/$/,/' -e '/\/$/s/$/\//' | LC_COLLATE=C sort -df --ignore='.[^[:alnum:]]' && echo
