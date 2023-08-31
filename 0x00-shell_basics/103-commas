@@ -1,2 +1,2 @@
 #!/bin/bash
-(echo -n . ; ls -A | sed '/^\.$/d' | sed '/^\.\.$/d' | sed 's/^/, /') | tr -d '\n' || echo -n .
+printf './, ../, '; ls -1a | grep -vE "^(\.{1,2})$" | sort -df --ignore='.[^[:alnum:]]' | awk '{if($0 ~ /\/$/) {print $0} else {print $0","}}' | tr '\n' ' '; printf "\n"
